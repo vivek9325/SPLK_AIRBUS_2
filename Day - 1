@@ -23,3 +23,9 @@ Installing UF ----------
    11  ./splunk status
    12  history
 
+
+Connection b/w UF and Indexers -----
+
+./splunk add forward-server 13.233.229.254:9997
+
+ ./splunk list forward-server
