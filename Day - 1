@@ -1,0 +1,9 @@
+    1  clear
+    2  wget -O splunk-9.3.2-d8bb32809498-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.3.2/linux/splunk-9.3.2-d8bb32809498-Linux-x86_64.tgz"
+    3  ll
+    4  tar xvzf splunk-9.3.2-d8bb32809498-Linux-x86_64.tgz
+    5  ll
+    6  cd splunk/bin/
+    7  ./splunk start
+    8  ./splunk status
+    9  history
