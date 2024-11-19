@@ -110,3 +110,7 @@ FORMAT = level::$1 thread::$2 location::$3 msgKeyClass::$4
 WRITE_META = true
 INGEST_EVAL = event_category=if(_raw LIKE "%backup%","backup start","")
 
+
+HEC Token -----
+
+curl -k https://13.233.229.254:8088/services/collector -H "Authorization:Splunk b8221465-c1af-497b-adee-84b68734ffc3" -d "{\"sourcetype\": \"trail\", \"event\":\"hello world\"}"
