@@ -5,3 +5,8 @@ Rex Commands ------
 From:\s+<(?P<from_mail_id>.*)>\s+To
 
 index="vk_idx" sourcetype="txt" | rex field=_raw "From:\s+<(?P<from_mail_id>.*)>\s+To"
+
+
+| makeresults 
+| eval text = "vk;search;saved_search" 
+| rex field=text "(?P<username>\w+);(?P<app_name>\w+);(?P<savedsearch>\w+)"
