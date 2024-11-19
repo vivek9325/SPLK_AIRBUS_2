@@ -1,1 +1,7 @@
 https://www.debuggex.com/cheatsheet/regex/pcre
+
+Rex Commands ------
+
+From:\s+<(?P<from_mail_id>.*)>\s+To
+
+index="vk_idx" sourcetype="txt" | rex field=_raw "From:\s+<(?P<from_mail_id>.*)>\s+To"
