@@ -19,3 +19,10 @@ index="vk_idx" sourcetype="txt" | rex field=_raw "From:\s+<(?P<from_mail_id>.*)>
 | makeresults 
 | eval text = "vk;search;saved_search" 
 | rex field=text "(?P<username>.*);(?P<app_name>.*);(?P<savedsearch>.*)"
+
+Data Masking ---------------
+
+| makeresults 
+| eval credit_card_number = "1234-5678-9101-1213" 
+| rex field=credit_card_number mode=sed "s/(\d{4}-){3}/XXXX-XXXX-XXXX-/g"
+
