@@ -118,3 +118,5 @@ curl -k https://13.233.229.254:8088/services/collector -H "Authorization:Splunk 
 Acks Enabled ---
 
 curl -k "https://13.233.229.254:8088/services/collector?channel=139e5fe0-ca13-42ad-ab44-580de0ed6a50" -H "Authorization:Splunk 0f9e50c6-f6d1-41f3-a3ab-e4580cc607e5" -d "{\"sourcetype\":\"trial\", \"event\":\"hello world\"}"
+
+curl -k "https://13.233.229.254:8088/services/collector/ack?channel=139e5fe0-ca13-42ad-ab44-580de0ed6a50" -H "Authorization:Splunk 0f9e50c6-f6d1-41f3-a3ab-e4580cc607e5" -d "{\"acks\":[2]}"
