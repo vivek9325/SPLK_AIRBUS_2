@@ -68,3 +68,21 @@ TIME_FORMAT=%Y-%m-%dT%H:%M:%S.%3N
 MAX_TIMESTAMP_LOOKAHEAD=24
 MAX_DAYS_AGO=5000
 MAX_DAYS_HENCE=10
+
+
+Index Time Extraction ----------
+
+
+[vk_new_xml]
+SHOULD_LINEMERGE=false
+LINE_BREAKER=([\r\n]*)<messages>
+NO_BINARY_CHECK=true
+MUST_BREAK_AFTER=</messages>
+BREAK_ONLY_BEFORE=<messages>
+TRANSFORMS-demoExtraction = xmlExtraction
+
+
+[xmlExtraction]
+REGEX = <level>(?P<level>.*)<\/level><thread>(?P<thread>.*)<\/thread><location>(?P<location>.*)<\/location><msgKeyClass>(?P<msgKeyClass>.*)<\/msgKeyClass>
+FORMAT = level::$1 thread::$2 location::$3 msgKeyClass::$4
+WRITE_META = true
