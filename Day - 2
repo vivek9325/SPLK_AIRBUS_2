@@ -72,7 +72,7 @@ MAX_DAYS_HENCE=10
 
 Index Time Extraction ----------
 
-
+props.conf
 [vk_new_xml]
 SHOULD_LINEMERGE=false
 LINE_BREAKER=([\r\n]*)<messages>
@@ -81,7 +81,7 @@ MUST_BREAK_AFTER=</messages>
 BREAK_ONLY_BEFORE=<messages>
 TRANSFORMS-demoExtraction = xmlExtraction
 
-
+transforms.conf
 [xmlExtraction]
 REGEX = <level>(?P<level>.*)<\/level><thread>(?P<thread>.*)<\/thread><location>(?P<location>.*)<\/location><msgKeyClass>(?P<msgKeyClass>.*)<\/msgKeyClass>
 FORMAT = level::$1 thread::$2 location::$3 msgKeyClass::$4
