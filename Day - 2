@@ -10,3 +10,8 @@ index="vk_idx" sourcetype="txt" | rex field=_raw "From:\s+<(?P<from_mail_id>.*)>
 | makeresults 
 | eval text = "vk;search;saved_search" 
 | rex field=text "(?P<username>\w+);(?P<app_name>\w+);(?P<savedsearch>\w+)"
+
+
+| makeresults 
+| eval text = "vk;search;saved_search" 
+| rex field=text "(?P<username>.*);(?P<app_name>.*);(?P<savedsearch>.*)"
