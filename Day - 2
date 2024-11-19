@@ -13,5 +13,9 @@ index="vk_idx" sourcetype="txt" | rex field=_raw "From:\s+<(?P<from_mail_id>.*)>
 
 
 | makeresults 
+| eval credit_card_number = "1234-5678-9101-1213" 
+| rex field=credit_card_number "(?P<digits>\d{4})" max_match=0 offset_field=new_field
+
+| makeresults 
 | eval text = "vk;search;saved_search" 
 | rex field=text "(?P<username>.*);(?P<app_name>.*);(?P<savedsearch>.*)"
