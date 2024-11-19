@@ -49,3 +49,10 @@ SHOULD_LINEMERGE=true
 NO_BINARY_CHECK=true
 MUST_BREAK_AFTER=To finish press any key.
 MUST_NOT_BREAK_BEFORE=Batch tasks have been completed. 
+
+
+[ __auto__learned__ ]
+SHOULD_LINEMERGE=true
+LINE_BREAKER=([\r\n]+)
+NO_BINARY_CHECK=true
+BREAK_ONLY_BEFORE=}]}
