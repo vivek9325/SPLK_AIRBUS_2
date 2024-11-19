@@ -32,7 +32,7 @@ Data Masking ---------------
 | rex field=credit_card_number mode=sed "y/1234/XXXX/"
 
 
-Inddex time field extraction -----
+Event Breaking -----
 
 
 [ __auto__learned__ ]
@@ -56,3 +56,15 @@ SHOULD_LINEMERGE=true
 LINE_BREAKER=([\r\n]+)
 NO_BINARY_CHECK=true
 BREAK_ONLY_BEFORE=}]}
+
+Timestamp Extraction -----------
+
+[ __auto__learned__ ]
+SHOULD_LINEMERGE=false
+LINE_BREAKER=([\r\n]+)
+NO_BINARY_CHECK=true
+TIME_PREFIX=GMT
+TIME_FORMAT=%Y-%m-%dT%H:%M:%S.%3N
+MAX_TIMESTAMP_LOOKAHEAD=24
+MAX_DAYS_AGO=5000
+MAX_DAYS_HENCE=10
