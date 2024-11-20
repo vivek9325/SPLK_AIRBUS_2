@@ -91,3 +91,11 @@ index=main sourcetype=vk_rising_column
 | join type=left emp_id
     [ search index=main sourcetype=vk_rising_column 
     | table emp_id,  emp_designation]
+
+
+Transaction Commands -----
+
+source="tutorialdata.zip:*" host="ip-172-31-46-49" index="vk_transaction" sourcetype=access_* 
+| transaction JSESSIONID clientip startswith="view" endswith="purchase" 
+| highlight action
+
