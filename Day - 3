@@ -66,3 +66,12 @@ index=main sourcetype=vk_rising_column
 | table emp_id, emp_name, emp_location 
 | appendcols 
     [ search index=main source="http:vk_tok" | table source, sourcetype, host]
+
+
+index=main sourcetype=vk_rising_column 
+| eval emp_location = lower(emp_location) 
+| stats count by emp_location, emp_designation 
+| appendpipe 
+    [| stats sum(count) as count by emp_location 
+    | eval emp_designation = "Total Count by Location"] 
+| sort emp_location
