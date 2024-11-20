@@ -75,3 +75,19 @@ index=main sourcetype=vk_rising_column
     [| stats sum(count) as count by emp_location 
     | eval emp_designation = "Total Count by Location"] 
 | sort emp_location
+
+
+
+Join ----
+
+index=main sourcetype=vk_rising_column 
+| table emp_id, emp_name, emp_location 
+| join type=inner emp_id
+    [ search index=main sourcetype=vk_rising_column 
+    | table emp_id,  emp_designation]
+
+index=main sourcetype=vk_rising_column 
+| table emp_id, emp_name, emp_location 
+| join type=left emp_id
+    [ search index=main sourcetype=vk_rising_column 
+    | table emp_id,  emp_designation]
