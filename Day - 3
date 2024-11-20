@@ -99,3 +99,6 @@ source="tutorialdata.zip:*" host="ip-172-31-46-49" index="vk_transaction" source
 | transaction JSESSIONID clientip startswith="view" endswith="purchase" 
 | highlight action
 
+source="tutorialdata.zip:*" host="ip-172-31-46-49" index="vk_transaction" sourcetype=access_* 
+| transaction maxevents=3 maxpause=2s maxspan=5s
+| highlight action
