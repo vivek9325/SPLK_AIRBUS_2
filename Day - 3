@@ -51,3 +51,18 @@ SELECT *
 FROM `employee_details`.`emp_details`
 WHERE emp_id > ?
 ORDER BY  emp_id ASC
+
+
+Append / Appendcol/ Appendpipe
+
+index=main sourcetype=vk_rising_column 
+| table emp_id, emp_name, emp_location 
+| append
+    [ search index=main source="http:vk_tok" | table source, sourcetype, host]
+
+
+
+index=main sourcetype=vk_rising_column 
+| table emp_id, emp_name, emp_location 
+| appendcols 
+    [ search index=main source="http:vk_tok" | table source, sourcetype, host]
