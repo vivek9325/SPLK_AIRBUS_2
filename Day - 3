@@ -45,3 +45,9 @@ https://1drv.ms/f/c/c407a12029779ae6/Eq3Dmwvg_kJKiL-J-TjXbOAB3I5E7svUSbUu_OLhI4f
   158  ll
   159  mv ../../mysql-connector-j-9.1.0.jar .
 
+Rising Column ----
+
+SELECT *
+FROM `employee_details`.`emp_details`
+WHERE emp_id > ?
+ORDER BY  emp_id ASC
