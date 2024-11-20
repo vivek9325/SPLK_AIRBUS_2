@@ -18,3 +18,11 @@ sudo ./xampp-linux-x64-8.2.12-0-installer.run
 
 Ondrive link ---- 
 https://1drv.ms/f/c/c407a12029779ae6/Eq3Dmwvg_kJKiL-J-TjXbOAB3I5E7svUSbUu_OLhI4fU1g?e=SJ3gZd
+
+
+ 118  sudo apt update
+  119  clear
+  120  sudo apt install openjdk-17-jre -y
+  121  java -version
+
+/usr/lib/jvm/java-17-openjdk-amd64/
