@@ -26,3 +26,22 @@ https://1drv.ms/f/c/c407a12029779ae6/Eq3Dmwvg_kJKiL-J-TjXbOAB3I5E7svUSbUu_OLhI4f
   121  java -version
 
 /usr/lib/jvm/java-17-openjdk-amd64/
+
+
+ 144  wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-j-9.1.0.tar.gz
+  145  ll
+  146  tar xvzf mysql-connector-j-9.1.0.tar.gz
+  147  clear
+  148  ll
+  149  cd mysql-connector-j-9.1.0/
+  150  clear
+  151  ll
+  152  cp mysql-connector-j-9.1.0.jar ../splunk/etc/apps/\
+  153  cd ../splunk/etc/apps/
+  154  ll
+  155  cd splunk_app_db_connect/
+  156  ll
+  157  cd drivers/
+  158  ll
+  159  mv ../../mysql-connector-j-9.1.0.jar .
+
