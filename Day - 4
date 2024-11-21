@@ -8,3 +8,8 @@
   192  cd local/
   193  nano test.txt
   194  ll
+
+
+ 12  cd splunkforwarder/bin/
+   13  ./splunk set deploy-poll https://13.233.229.254:8089
+   14  ./splunk restart
