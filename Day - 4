@@ -64,3 +64,12 @@ pass4SymmKey = $7$v45yhecHZHBjRol2vdKEFxyMTJ2OPqT9BDjUxD0IdtiRkukFLDjA5eg=
   212  ./splunk show cluster-bundle-status
   213  history
 
+SH Clustering ----
+
+Deployer
+
+[shclustering]
+pass4SymmKey = admin@123
+shcluster_label = shcluster1
+
+
