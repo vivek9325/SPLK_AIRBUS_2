@@ -22,3 +22,15 @@
 ubuntu@ip-172-31-37-56:~/splunkforwarder/etc/system/local$ cat deploymentclient.conf
 [target-broker:deploymentServer]
 targetUri = https://13.233.229.254:8089
+
+
+ubuntu@ip-172-31-46-49:~/splunk/etc/system/local$ cat serverclass.conf
+[serverClass:vk_serverclass:app:dummy_app]
+restartSplunkWeb = 0
+restartSplunkd = 1
+stateOnClient = enabled
+
+[serverClass:vk_serverclass]
+whitelist.0 = 13.233.223.45
+
+
