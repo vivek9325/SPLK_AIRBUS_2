@@ -33,4 +33,16 @@ stateOnClient = enabled
 [serverClass:vk_serverclass]
 whitelist.0 = 13.233.223.45
 
+Uninstall the UF -----
+
+  34  cd splunkforwarder/bin/
+   35  ./splunk stop
+   36  ps -ef | grep splunk
+   37  cd ..
+   38  ll
+   39  cd ..
+   40  ll
+   41  rm -rf splunkforwarder
+   42  rm -rf splunkforwarder-9.3.2-d8bb32809498-Linux-x86_64.tgz
+   43  ll
 
