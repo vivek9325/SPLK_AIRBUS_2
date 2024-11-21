@@ -1,0 +1,10 @@
+  cd splunk/etc/deployment-apps/
+  186  ll
+  187  mkdir dummy_app
+  188  ll
+  189  cd dummy_app/
+  190  mkdir local
+  191  ll
+  192  cd local/
+  193  nano test.txt
+  194  ll
