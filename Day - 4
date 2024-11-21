@@ -74,4 +74,8 @@ splunk/etc/system/local/server.conf
 pass4SymmKey = admin@123
 shcluster_label = shcluster1
 
+Syntax ----
+./splunk init shcluster-config -auth <username>:<password> -mgmt_uri <URI>:<management_port> -replication_port <replication_port> -replication_factor <n> -conf_deploy_fetch_url <URL>:<management_port> -secret <security_key> -shcluster_label <label>
 
+Example ---
+./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://13.233.223.45:8089 -replication_port 9000 -replication_factor 2 -conf_deploy_fetch_url https://13.233.229.254:8089 -secret admin@123 -shcluster_label shcluster1
