@@ -58,4 +58,9 @@ master_uri = https://13.233.229.254:8089
 pass4SymmKey = $7$v45yhecHZHBjRol2vdKEFxyMTJ2OPqT9BDjUxD0IdtiRkukFLDjA5eg=
 
 
+  209  clear
+  210  cd splunk/bin/
+  211  ./splunk apply cluster-bundle
+  212  ./splunk show cluster-bundle-status
+  213  history
 
