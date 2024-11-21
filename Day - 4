@@ -79,3 +79,9 @@ Syntax ----
 
 Example ---
 ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://13.233.223.45:8089 -replication_port 9000 -replication_factor 2 -conf_deploy_fetch_url https://13.233.229.254:8089 -secret admin@123 -shcluster_label shcluster1
+
+Captain ----
+
+./splunk bootstrap shcluster-captain -servers_list "<URI>:<management_port>,<URI>:<management_port>,..." -auth <username>:<password>
+
+./splunk bootstrap shcluster-captain -servers_list "https://13.233.76.228:8089,https://13.233.223.45:8089" -auth admin:admin@123
