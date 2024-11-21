@@ -86,6 +86,19 @@ Captain ----
 
 ./splunk bootstrap shcluster-captain -servers_list "https://13.233.76.228:8089,https://13.233.223.45:8089" -auth admin:admin@123
 
+CLI Commands ------
+--remove a memeber 
+./splunk remove shcluster-member
+
+--see the cluster status
+
+./splunk show shcluster-status -auth <username>:<password>
+
+--see the member status
+
+./splunk list shcluster-config -auth <username>:<password>
+
+
 Deployer end -----
 
  252  cd splunk/etc/
