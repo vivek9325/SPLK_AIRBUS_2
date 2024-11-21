@@ -17,3 +17,8 @@
 
   210  ./splunk reload deploy-server
   211  ./splunk reload deploy-server -serverclass vk_serverclass
+
+
+ubuntu@ip-172-31-37-56:~/splunkforwarder/etc/system/local$ cat deploymentclient.conf
+[target-broker:deploymentServer]
+targetUri = https://13.233.229.254:8089
