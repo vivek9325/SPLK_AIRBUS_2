@@ -68,6 +68,8 @@ SH Clustering ----
 
 Deployer
 
+splunk/etc/system/local/server.conf
+
 [shclustering]
 pass4SymmKey = admin@123
 shcluster_label = shcluster1
