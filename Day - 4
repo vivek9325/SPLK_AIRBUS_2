@@ -85,3 +85,22 @@ Captain ----
 ./splunk bootstrap shcluster-captain -servers_list "<URI>:<management_port>,<URI>:<management_port>,..." -auth <username>:<password>
 
 ./splunk bootstrap shcluster-captain -servers_list "https://13.233.76.228:8089,https://13.233.223.45:8089" -auth admin:admin@123
+
+Deployer end -----
+
+ 252  cd splunk/etc/
+  253  ll
+  254  cd shcluster/
+  256  cd apps/
+  257  ll
+  258  mkdir dummy_app
+  259  cd dummy_app/
+  260  mkdir local
+  261  cd local/
+  262  nano test.txt
+  263  pwd
+  264  cd ../../..
+  265  cd ../../bin/
+  267  ./splunk apply shcluster-bundle -target https://13.233.223.45:8089
+
+
