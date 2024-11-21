@@ -116,4 +116,7 @@ Deployer end -----
   265  cd ../../bin/
   267  ./splunk apply shcluster-bundle -target https://13.233.223.45:8089
 
+server.conf -----
+[diskUsage]
+minFreeSpace = 500
 
