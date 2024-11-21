@@ -46,3 +46,16 @@ Uninstall the UF -----
    42  rm -rf splunkforwarder-9.3.2-d8bb32809498-Linux-x86_64.tgz
    43  ll
 
+
+
+
+
+[replication_port://9887]
+
+[clustering]
+mode = peer
+master_uri = https://13.233.229.254:8089
+pass4SymmKey = $7$v45yhecHZHBjRol2vdKEFxyMTJ2OPqT9BDjUxD0IdtiRkukFLDjA5eg=
+
+
+
