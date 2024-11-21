@@ -13,3 +13,7 @@
  12  cd splunkforwarder/bin/
    13  ./splunk set deploy-poll https://13.233.229.254:8089
    14  ./splunk restart
+
+
+  210  ./splunk reload deploy-server
+  211  ./splunk reload deploy-server -serverclass vk_serverclass
