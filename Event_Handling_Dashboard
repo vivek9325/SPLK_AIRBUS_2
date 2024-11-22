@@ -1,5 +1,41 @@
-<dashboard version="1.1" theme="dark">
+<form version="1.1" theme="dark">
   <label>vk_student_dashboard</label>
+  <fieldset submitButton="false">
+    <input type="dropdown" token="gender" searchWhenChanged="true">
+      <label>Gender</label>
+      <choice value="male">Male</choice>
+      <choice value="female">Female</choice>
+    </input>
+  
+  
+    <input type="dropdown" token="score_by" searchWhenChanged="true">
+      <label>Score By</label>
+      <choice value="all">All</choice>
+      <choice value="both">Both</choice>
+      <choice value="gender">Gender</choice>
+      <choice value="ethinicity">Ethinicity</choice>
+      
+      <change>
+        
+        <condition label="Gender">
+          <set token="show_gender_panel"></set>
+        </condition>
+        <condition value="ethinicity">
+          <set token="show_ethinicity_panel"></set>
+        </condition>
+        <condition match="$value$==&quot;both&quot;">
+          <set token="show_both_panel"></set>
+        </condition>
+        
+      </change>
+      
+      
+    </input>
+    
+    
+    
+    
+  </fieldset>
   <row>
     <panel>
       <title>Count by Male</title>
@@ -55,7 +91,7 @@
     </panel>
   </row>
   <row>
-    <panel>
+    <panel depends="$show_gender_panel$">
       <title>Avg Score Gender Wise</title>
       <chart>
         <search>
@@ -99,52 +135,7 @@
     </panel>
   </row>
   <row>
-    <panel>
-      <title>Avg Score by Gender and Ethinicity</title>
-      <chart>
-        <search>
-          <query>index="vk_idx" sourcetype="csv" 
-| stats avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score, avg("math score") as avg_math_score by gender, race_ethnicity</query>
-          <earliest>0</earliest>
-          <sampleRatio>1</sampleRatio>
-        </search>
-        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
-        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
-        <option name="charting.axisTitleX.visibility">collapsed</option>
-        <option name="charting.axisTitleY.visibility">collapsed</option>
-        <option name="charting.axisTitleY2.visibility">collapsed</option>
-        <option name="charting.axisX.abbreviation">none</option>
-        <option name="charting.axisX.scale">linear</option>
-        <option name="charting.axisY.abbreviation">none</option>
-        <option name="charting.axisY.scale">linear</option>
-        <option name="charting.axisY2.abbreviation">none</option>
-        <option name="charting.axisY2.enabled">0</option>
-        <option name="charting.axisY2.scale">inherit</option>
-        <option name="charting.chart">column</option>
-        <option name="charting.chart.bubbleMaximumSize">50</option>
-        <option name="charting.chart.bubbleMinimumSize">10</option>
-        <option name="charting.chart.bubbleSizeBy">area</option>
-        <option name="charting.chart.nullValueMode">gaps</option>
-        <option name="charting.chart.showDataLabels">none</option>
-        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-        <option name="charting.chart.stackMode">default</option>
-        <option name="charting.chart.style">shiny</option>
-        <option name="charting.drilldown">none</option>
-        <option name="charting.layout.splitSeries">0</option>
-        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
-        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-        <option name="charting.legend.mode">standard</option>
-        <option name="charting.legend.placement">none</option>
-        <option name="charting.lineWidth">2</option>
-        <option name="trellis.enabled">1</option>
-        <option name="trellis.scales.shared">1</option>
-        <option name="trellis.size">medium</option>
-        <option name="trellis.splitBy">race_ethnicity</option>
-      </chart>
-    </panel>
-  </row>
-  <row>
-    <panel>
+    <panel depends="$show_ethinicity_panel$">
       <title>Avg Score by Ethnicity</title>
       <chart>
         <search>
@@ -188,4 +179,49 @@
       </chart>
     </panel>
   </row>
-</dashboard>
+  <row>
+    <panel depends="$show_both_panel$">
+      <title>Avg Score by Gender and Ethinicity</title>
+      <chart>
+        <search>
+          <query>index="vk_idx" sourcetype="csv" 
+| stats avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score, avg("math score") as avg_math_score by gender, race_ethnicity</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">collapsed</option>
+        <option name="charting.axisTitleY.visibility">collapsed</option>
+        <option name="charting.axisTitleY2.visibility">collapsed</option>
+        <option name="charting.axisX.abbreviation">none</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.abbreviation">none</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.abbreviation">none</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.mode">standard</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="charting.lineWidth">2</option>
+        <option name="trellis.enabled">1</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="trellis.splitBy">race_ethnicity</option>
+      </chart>
+    </panel>
+  </row>
+</form>
