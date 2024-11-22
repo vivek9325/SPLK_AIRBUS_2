@@ -1,0 +1,22 @@
+aeq ------> Audit Event Queue   ----> Internal Audit Events 
+aggqueue ----> Aggregation Queue ---> Parsing Process
+aq ----> Audit Queue ----> Audit Event
+fschangemanager_queue ---> File system ----> File system Monitoring
+indexqueue
+nullqueue ----> Discard the event
+parsingqueue----> Raw data is parsed
+splunktcpin --- TCP Data 
+stashparsing---- summary index
+tcpin_queue ----> TCP Input
+typingqueue ---> Evenntype
+
+
+props.conf
+
+transforms-null = setnull
+
+[setnull]
+REGEX = 
+DEST_KEY = QUEUE
+FORMAT = nullQueue
+
