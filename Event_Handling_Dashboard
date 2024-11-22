@@ -6,17 +6,13 @@
       <choice value="male">Male</choice>
       <choice value="female">Female</choice>
     </input>
-  
-  
     <input type="dropdown" token="score_by" searchWhenChanged="true">
       <label>Score By</label>
       <choice value="all">All</choice>
       <choice value="both">Both</choice>
       <choice value="gender">Gender</choice>
       <choice value="ethinicity">Ethinicity</choice>
-      
       <change>
-        
         <condition label="Gender">
           <set token="show_gender_panel"></set>
           <unset token="show_ethinicity_panel"></unset>
@@ -38,21 +34,28 @@
           <set token="show_ethinicity_panel"></set>
         </condition>
       </change>
-      
-      
     </input>
-    
-    
-    
-    
   </fieldset>
   <row>
-    <panel>
+    <panel rejects="$hide_male_panel$">
       <title>Count by Male</title>
       <single>
         <search>
-          <query>index="vk_idx" sourcetype="csv" | stats count by gender | where gender="male" | fields count</query>
+          <query>index="vk_idx" sourcetype="csv" gender="$gender$" | stats count by gender | where gender="male" | fields count</query>
+          
+       
+          
           <earliest>0</earliest>
+          <latest></latest>
+             <done>
+            <condition match="'job.resultCount'==0">
+              <set token="hide_male_panel"></set>
+            </condition>
+            <condition>
+              <unset token="hide_male_panel"></unset>
+            </condition>
+          </done>
+          
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="colorBy">value</option>
@@ -61,6 +64,7 @@
         <option name="numberPrecision">0</option>
         <option name="rangeColors">["0x53a051","0x0877a6","0xf8be34","0xf1813f","0xdc4e41"]</option>
         <option name="rangeValues">[0,30,70,100]</option>
+        <option name="refresh.display">progressbar</option>
         <option name="showSparkline">1</option>
         <option name="showTrendIndicator">1</option>
         <option name="trellis.enabled">0</option>
@@ -73,12 +77,21 @@
         <option name="useThousandSeparators">1</option>
       </single>
     </panel>
-    <panel>
+    <panel rejects="$hide_female_panel$">
       <title>count by female</title>
       <single>
         <search>
-          <query>index="vk_idx" sourcetype="csv" | stats count by gender | where gender="female" | fields count</query>
+          <query>index="vk_idx" sourcetype="csv" gender="$gender$" | stats count by gender | where gender="female" | fields count</query>
           <earliest>0</earliest>
+          <latest></latest>
+             <done>
+            <condition match="'job.resultCount'==0">
+              <set token="hide_female_panel"></set>
+            </condition>
+            <condition>
+              <unset token="hide_female_panel"></unset>
+            </condition>
+          </done>
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="colorBy">value</option>
@@ -87,6 +100,7 @@
         <option name="numberPrecision">0</option>
         <option name="rangeColors">["0x53a051","0x0877a6","0xf8be34","0xf1813f","0xdc4e41"]</option>
         <option name="rangeValues">[0,30,70,100]</option>
+        <option name="refresh.display">progressbar</option>
         <option name="showSparkline">1</option>
         <option name="showTrendIndicator">1</option>
         <option name="trellis.enabled">0</option>
