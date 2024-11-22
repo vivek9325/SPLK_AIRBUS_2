@@ -1,4 +1,4 @@
-<form theme="dark">
+<form theme="dark" version="1">
   <init>
     <set token="form.test_prep">completed</set>
   </init>
