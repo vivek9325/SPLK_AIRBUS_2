@@ -1,0 +1,8 @@
+ 550  cd splunk/bin/
+  551  ./splunk btool props list
+  552  ./splunk btool props list --debug
+  553  ./splunk btool inputs list --debug
+  554  clear
+  555  ./splunk btool inputs list monitor:///vat/log --debug
+  556  ./splunk btool transforms list xmlextraction --debug
+  557  history
