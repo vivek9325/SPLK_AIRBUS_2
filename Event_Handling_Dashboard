@@ -19,14 +19,24 @@
         
         <condition label="Gender">
           <set token="show_gender_panel"></set>
+          <unset token="show_ethinicity_panel"></unset>
+          <unset token="show_both_panel"></unset>
         </condition>
         <condition value="ethinicity">
           <set token="show_ethinicity_panel"></set>
+          <unset token="show_gender_panel"></unset>
+          <unset token="show_both_panel"></unset>
         </condition>
         <condition match="$value$==&quot;both&quot;">
           <set token="show_both_panel"></set>
+          <unset token="show_ethinicity_panel"></unset>
+          <unset token="show_gender_panel"></unset>
         </condition>
-        
+        <condition>
+          <set token="show_both_panel"></set>
+          <set token="show_gender_panel"></set>
+          <set token="show_ethinicity_panel"></set>
+        </condition>
       </change>
       
       
